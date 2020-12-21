@@ -1,0 +1,56 @@
+{
+  "_from": "photon-editor@^1.0.1",
+  "_id": "photon-editor@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-I0EDbnAuf5qPF9zupHsNzuNYulcVRjYH33jT26b8saNxoyp0rH9dDYAslJuIih1YukifyE1Mir/q6lBFNj/nLg==",
+  "_location": "/photon-editor",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "photon-editor@^1.0.1",
+    "name": "photon-editor",
+    "escapedName": "photon-editor",
+    "rawSpec": "^1.0.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.1"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/photon-editor/-/photon-editor-1.0.1.tgz",
+  "_shasum": "88978db4ad22997d6cbaae7c1a6d05489f2a6a96",
+  "_spec": "photon-editor@^1.0.1",
+  "_where": "C:\\Users\\AYUSH\\Desktop\\photon.gui.v1",
+  "author": {
+    "name": "pyronlaboratory"
+  },
+  "bugs": {
+    "url": "https://github.com/eleanor-studio/photon.editor/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "three": "^0.123.0"
+  },
+  "deprecated": false,
+  "description": "A simple editor for rendering webgl and webxr graphics and creating immersive interactions.",
+  "devDependencies": {},
+  "homepage": "https://github.com/eleanor-studio/photon.editor#readme",
+  "keywords": [
+    "webgl",
+    "webxr",
+    "three.js",
+    "editor"
+  ],
+  "license": "MIT",
+  "main": "photon-editor.js",
+  "name": "photon-editor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eleanor-studio/photon.editor.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}

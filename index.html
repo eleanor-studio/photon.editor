@@ -16,26 +16,26 @@
 	<script type="text/javascript" src="./scripts/FileSaver.js"></script>
 
 	<script type="module">
-		import { PhotonEditor } from './node_modules/photon-editor/photon-editor.js';
+		import { PhotonEditor } from './scripts/photon-editor/photon-editor.js';
 
-		var zip = new JSZip();
+		// var zip = new JSZip();
 
-		const genEx = [
-			{"html": "./exports/index.html"},
-			{"css": "./exports/styles/main.css"},
-			{"js": "./exports/scripts/main.js"}
-		];
+		// const genEx = [
+		// 	{"html": "./exports/index.html"},
+		// 	{"css": "./exports/styles/main.css"},
+		// 	{"js": "./exports/scripts/main.js"}
+		// ];
 
 		function generateExport(gen) {
-			console.log(gen);
-			fetch(gen.value)
-			.then(response => response.text())
-			.then(data => {
-				console.log("now reading..");
-				console.log("call update function");
-				console.log("return now");
-				return "updated file data";
-			});
+			// console.log(gen);
+			// fetch(gen.value)
+			// .then(response => response.text())
+			// .then(data => {
+			// 	console.log("now reading..");
+			// 	console.log("call update function");
+			// 	console.log("return now");
+			// 	return "updated file data";
+			// });
 
 
 			// Promise.all([
@@ -113,14 +113,14 @@
 				//   		zip.file("assets/", data);
 				//   	});
 
-				genEx.forEach( g => {
-					let content = generateExport(g);
-					console.log("received..");
-					console.log(content);
-					// zip.file(content.location, content.data);
-				});
+				// genEx.forEach( g => {
+				// 	let content = generateExport(g);
+				// 	console.log("received..");
+				// 	console.log(content);
+				// 	// zip.file(content.location, content.data);
+				// });
 
-				console.log("now zip..");
+				// console.log("now zip..");
 				
 				// Generate the zip file asynchronously
 				// zip.generateAsync({type:"blob"})
@@ -130,7 +130,7 @@
 				// });
 				
 
-				console.log("finish now.");
+				// console.log("finish now.");
 
 
 			});
