@@ -1,0 +1,103 @@
+/* Modal Styling */
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.25);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modal-window:target {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window > div {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 2em;
+  background: #ffffff;
+}
+.modal-window header {
+  
+  font-weight: bold;
+}
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 2em;
+  text-align: center;
+  top: 1em;
+  width: 70px;
+  text-decoration: none;
+}
+.modal-close:hover {
+  
+  color: black;
+}
+.modal-window div:not(:last-of-type) {
+  
+  margin-bottom: 15px;
+}
+.pointer {
+  cursor: pointer;
+}
+
+
+#model-setting > div {
+  width: 82vw;
+  height: 45vw;
+  position: absolute;
+  top: 0;
+  left: 15vw;
+  -webkit-transform: translate(0%, 0%); 
+  transform: translate(0%, 0%); 
+  padding: 2em;
+  background: #f3f3f3;
+}
+
+#model-setting  h1 {
+  margin-left: 2.1em;
+}
+
+#model-setting .model-close, 
+#model-setting .pointer,
+#model-setting small {
+  margin-left: 3.1em;
+}
+
+#model-setting .modal-close {
+  right: 4em;
+  top: 2em;
+}
+
+#scene-setting > div {
+  width: 60vw;
+  background: transparent;
+}
+
+#scene-setting > div > div:nth-child(4) > small{
+  color: black;
+}
+
+#scene-setting .modal-close {
+  color: black;
+  right: 0;
+}

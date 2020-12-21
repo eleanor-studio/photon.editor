@@ -1,0 +1,270 @@
+* {
+    font-family: monospace !important;
+}
+
+*:focus {
+	outline: none;
+}
+
+body {
+	margin: 0;
+	padding: 0; 
+  overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+}
+
+input[type=color]{
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 40px;
+	background: none;
+	margin-bottom: 2vh;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;/* solid 1px #000; change color of the swatch border here*/
+	border-radius: 40px;
+}
+
+small {
+  color: #aaa;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1em;
+  font-size: 1.1em;
+  line-height: 2em;
+  margin: 0;
+}
+
+
+
+
+#world {
+	position: absolute;
+	top:0;
+	bottom:0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background: rgb(114,170,255);
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#world canvas {
+	
+	margin-left: -7vw;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+.left-panel {
+	z-index: 1;
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+.settings {
+	display: block;
+	height: 100vh;
+	width: 15vw;
+	overflow: hidden;
+	/*background-color: chartreuse;*/
+}
+
+.setting {
+	
+  display: inline-block;
+}
+
+.publish {
+	position: absolute;
+	bottom: 0em;
+	display: flex;
+	justify-content: space-between;
+}
+
+.publish .tab {
+	border-top: 1px solid gray;
+	padding: 0em;
+}
+
+.publish span {
+	font-size: 2em;
+	margin-right: 1em;
+	margin-bottom: 0.5em;
+}
+
+.editor {
+	display: block;
+	height: 100vh;
+	width: 85vw;
+	background: #f1f3f6;
+}
+
+.editor {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.editor:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.txt {
+	
+  padding-left: 1em;
+}
+
+.tab {
+	text-decoration: none;
+    display: flex;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    width: 15vw;
+    font-size: 1em;
+    font-weight: 600;
+    border-bottom: 1px solid gray;
+    padding-left: 1em;
+}
+.tab i {
+    padding-right: 0.3em;
+}
+
+.tab:hover {
+  background: linear-gradient(90deg,#ff8a00,#e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  background-clip: text;
+/*  border-color: white;*/
+}
+
+.backround-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.background-input {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 50%;
+  background: #f1f3f6;
+  padding: 1em;
+  padding-bottom: 0px;
+  border-radius: 15px;
+}
+
+#backgroundValue {
+  color: #333;
+  font-size: 2em;
+  padding: 0.2em 0.5em;
+}
+
+.form-grid {
+	display: flex;
+	flex-direction: row;
+}
+
+.form-grid-left, .form-grid-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid-right b {
+
+  margin-left: 20%;
+}
+
+.camera-form {
+  
+  margin-left: 20%;
+}
+
+.camera-form, 
+.scene-form {
+    background: hsl(0deg 0% 0% / 11%);
+    padding: 2em;
+    border-radius: 15px;
+    padding-top: 1em;
+    padding-right: 0;
+    width: 100%;
+}
+
+.fov-input, 
+.np-input, 
+.fp-input,
+.camera-x, 
+.camera-y, 
+.camera-z {
+    
+    width: 25vw;
+}
+
+.loading {
+  position: fixed;
+  z-index: 50;
+  width: 85%;
+  height: 100%;
+  top: 0; right: 0;
+  background: rgba(31,31,31,0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame-text {
+  position: absolute;
+  text-transform: uppercase;
+  color: white;
+}
+
+
+.hint {
+  left: 18%;
+  bottom: 3em;
+}
+
+.github {
+  position: absolute;
+  right: 1em;
+  top: 1.5em;
+  z-index: 1;
+}
+
+.footer {
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  height: 10vh;
+  justify-content: space-between;
+  color: white;
+}
+
+.footer a {
+  color: white !important;
+  font-weight: 600;
+}

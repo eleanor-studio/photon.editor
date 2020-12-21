@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Photon - A simple editor for creating webgl and webxr interactions</title>
+	<link rel="icon" type="image/png" href="./assets/github.png">
+
+	<link rel="stylesheet" type="text/css" href="./styles/main.css">
+	<link rel="stylesheet" type="text/css" href="./styles/card.css">
+	<link rel="stylesheet" type="text/css" href="./styles/select.css">
+	<link rel="stylesheet" type="text/css" href="./styles/modal.css">
+	<link rel="stylesheet" type="text/css" href="./styles/switch.css">
+	<link rel="stylesheet" type="text/css" href="./styles/checkbox.css">
+	<link rel="stylesheet" type="text/css" href="./styles/loader.css">
+	
+	<script type="text/javascript" src="./scripts/jszip/dist/jszip.js"></script>
+	<script type="text/javascript" src="./scripts/FileSaver.js"></script>
+
+	<script type="module">
+		import { PhotonEditor } from './node_modules/photon-editor/photon-editor.js';
+
+		var zip = new JSZip();
+
+		const genEx = [
+			{"html": "./exports/index.html"},
+			{"css": "./exports/styles/main.css"},
+			{"js": "./exports/scripts/main.js"}
+		];
+
+		function generateExport(gen) {
+			console.log(gen);
+			fetch(gen.value)
+			.then(response => response.text())
+			.then(data => {
+				console.log("now reading..");
+				console.log("call update function");
+				console.log("return now");
+				return "updated file data";
+			});
+
+
+			// Promise.all([
+			// 	fetch('./exports/index.html'),
+			// 	fetch('./exports/styles/main.css'),
+			// 	fetch('./exports/scripts/main.js')
+			// ]).then(function (responses) {
+			// 	// Get a text object from each of the responses
+			// 	console.log(responses);
+			// 	return Promise.all(responses.map(function (response) {
+			// 		return response.text();
+			// 	}));
+			// }).then(function (data) {
+			// 	// Log the data to the console
+			// 	// You would do something with both sets of data here
+			// 	// console.log(data);
+			// }).then(function () {
+			// 	console.log("now zip..");
+			// 	// Generate the zip file asynchronously
+			// 	// zip.generateAsync({type:"blob"})
+			// 	// .then(function(content) {
+			// 	//     // Force down of the Zip file
+			// 	//     saveAs(content, "source.zip");
+			// 	// });			
+			// }).catch((error) => console.log(error));
+		}
+
+		window.onload = () => {
+			
+			const editor = new PhotonEditor();
+			editor.render();
+
+			document.getElementById("publish").addEventListener("click", (p) => {
+				p.preventDefault();
+
+				
+
+				// fetch('./exports/index.html')
+				// .then(response => response.text())
+				// .then(data => {
+				// 	console.log("now html..");
+				// 	zip.file("index.html", data);
+				// })
+				// .fetch('./exports/styles/main.css')
+				// .then(response => response.text())
+				// .then(data => {
+				// 	// edit data before saving
+				// 	console.log("now css..");
+				// 	zip.file("styles/main.css", data);
+				// })
+				// .fetch('./exports/scripts/main.js')
+				// .then(response => response.text())
+				// .then(data => {
+				// 	// edit data before saving
+				// 	console.log("now js..");
+				// 	zip.file("styles/main.js", data);
+				// })
+				// .then(function () {
+				// 	console.log("now zip..");
+				// 	// Generate the zip file asynchronously
+				// 	// zip.generateAsync({type:"blob"})
+				// 	// .then(function(content) {
+				// 	//     // Force down of the Zip file
+				// 	//     saveAs(content, "source.zip");
+				// 	// });
+					
+				// }).catch((error) => console.log(error));
+
+
+				// Save Assets
+
+				// let obj = fetch()
+				// 	.then(response => response.text())
+				// 	.then(data => {
+				//   		zip.file("assets/", data);
+				//   	});
+
+				genEx.forEach( g => {
+					let content = generateExport(g);
+					console.log("received..");
+					console.log(content);
+					// zip.file(content.location, content.data);
+				});
+
+				console.log("now zip..");
+				
+				// Generate the zip file asynchronously
+				// zip.generateAsync({type:"blob"})
+				// .then(function(content) {
+				//     // Force down of the Zip file
+				//     saveAs(content, "source.zip");
+				// });
+				
+
+				console.log("finish now.");
+
+
+			});
+
+			// update model
+			let models = document.getElementsByClassName("dropdown-item");
+			Array.prototype.forEach.call(models, (m) => {
+				m.addEventListener("click", () => {
+					let model = m.childNodes[1].name;
+					// alert(`model selected: ${model}`);	
+					editor.path = model;
+				});
+			});
+
+			// update camera perspective
+			function updatePerspective(field, offset) {
+				let vector = { "field": field, "offset": offset };
+				editor.perspective(vector);
+			}
+
+			[
+				document.querySelector("input[name='fov-input']"),
+				document.querySelector("input[name='np-input']"),
+				document.querySelector("input[name='fp-input']") ]
+			.forEach(item => {
+				item.addEventListener('click', event => {
+					updatePerspective(event.srcElement.name, event.srcElement.value);	
+				});
+			});
+
+			// update camera position
+			function updateCameraPosition(field, offset) {
+				let vector = { "field": field, "offset": offset };
+				editor.cameraPosition(vector);
+			}
+
+			[
+				document.querySelector("input[name='camera-x']"),
+				document.querySelector("input[name='camera-y']"),
+				document.querySelector("input[name='camera-z']") ]
+			.forEach(item => {
+				item.addEventListener('click', event => {
+					updateCameraPosition(event.srcElement.name, event.srcElement.value);	
+				});
+			});
+			
+			document.querySelector("input[name='mi']")
+			.addEventListener('click', event => {
+				editor.toggleInteractivity();
+			});
+
+		}
+	</script>
+
+
+</head>
+<body>
+<div class="wrapper">
+
+	<!-- GitHub Fork -->
+	<div class="github">
+
+		<img alt="GitHub" src="./assets/github_fork.png" height="50px" width="50px" />
+	</div>
+
+	<!-- Configuration Toolbox -->
+	<div class="settings left-panel">
+		<div class="setting model" id="">
+			<a class="tab" href="#model-setting">SELECT MODEL.</a>
+		</div>
+		<div class="setting scene" id="">
+			<a class="tab" href="#scene-setting">CONFIGURE SCENE.</a>
+		</div>
+		<div class="setting grid" id="">
+			<a class="tab" href="#grid-setting">EDIT BACKGROUND.</a>
+		</div>
+		<div class="setting interactivity" id="">
+			<a class="tab" href="#interactivity-setting">INTERACTIVITY.</a>
+		</div>
+		<div class="setting publish" id="publish">
+			<a class="tab" href="#"><div class="txt">PUBLISH.</div> <span>📤</span></a>
+		</div>
+	</div>
+
+	<!-- Add controls -->
+	<div class="controls" style="display: none;"></div>	
+	
+	<!-- Editor -->
+	<div class="editor">
+		<div id="world"></div>
+		<!-- hint -->
+		<div class="hint frame-text">HINT: Grab and drag cursor.</div>
+		<!-- Loading -->
+		<div class="loading" id="js-loader">
+			<div class="loader">
+			  <div class="circle-wrapper">
+			    <div class="circle-zero"></div>
+			    <div class="circle-one"></div>
+			    <div class="circle-two"></div>
+			    <div class="circle-three"></div>
+			    <div class="circle-shadow"></div>
+			    <div class="circle-text">Loading..</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Configuration Modals -->
+	<div id="grid-setting" class="modal-window">
+	    <div>
+		    <a href="#" title="Close" class="modal-close">Close</a>
+		    
+		    <h1>Change background color.</h1>
+		    <div class="background-form">
+			    <div class="background-input"><input type="color" id="background" name="background" value="#0066ff" onchange="updateBackground(false)">
+			    	<span id="backgroundValue">#0066ff</span>
+			    </div>
+
+			    <div class="background-transparent">
+			    	<label for="backgroundTransparent">Transparent background:</label> 
+					<input type="checkbox" id="backgroundTransparent" onclick="transparentBackground()">
+
+					<p id="confirm" style="display:none">Background removed. Uncheck to apply shades.</p>
+
+			    </div>
+		    </div>
+		    <div><small>Use gradient?</small></div>
+		    <div onclick="updateBackground(true)" class="pointer" >👉 Default background.</div>
+	    </div>
+	</div>
+	<div id="scene-setting" class="modal-window">
+	  <div>
+	    <a href="#" title="Close" class="modal-close">Close</a>
+	    <h1>Scene configuration.</h1>
+	    
+	    <div class="form-grid">
+	    	<div class="form-grid-left">
+		    	<div><b>Camera perspective settings for the scene.</b></div>
+		    	<div class="scene-form">
+		    		<p>Field of view:</p>
+	  				<input class="fov-input" name="fov-input" type="range" min="1" max="180" value="45">
+					
+					<p>Near plane:</p>
+					<input class="np-input" name="np-input" type="range" min="0.1" max="50" value="0.5">
+					
+					<p>Far plane:</p>
+					 <input class="fp-input" name="fp-input" type="range" min="0.1" max="50.1" value="50">
+		    	</div>
+		    </div>
+		    <div class="form-grid-right">
+		    	<div><b>Camera position settings for the scene.</b> </div>
+		    	<div class="camera-form">
+		    		<p>Camera X Coordinate:</p>
+	  				<input class="camera-x" name="camera-x" type="range" min="1" max="180" value="45">
+					
+					<p>Camera Y Coordinate:</p>
+					<input class="camera-y" name="camera-y" type="range" min="0.1" max="50" value="0.5">
+					
+					<p>Camera Z Coordinate:</p>
+					 <input class="camera-z" name="camera-z" type="range" min="0.1" max="50.1" value="50">
+		    	</div>
+	    	</div>
+	    </div>
+	    <div><small>Use recommended perspective?</small></div>
+	    <div onclick="sceneDefault()" class="pointer" >👉 Default camera settings.</div>
+	   </div>
+	</div>
+	<div id="model-setting" class="modal-window">
+	  <div class="model-setting">
+	    <a href="#" title="Close" class="modal-close">Close</a>
+	    <h1>Select a model</h1>
+	    
+	    <div class="card-list">
+			
+			<div class="card">
+				<div class="card-image malcolm"></div>
+				<div class="card-header">
+				  <p>Source: Adobe Mixamo</p>
+				  <h2>Malcolm.</h2>
+				</div>
+
+				<div class="card-tags">
+				  <a href="#">Animations: 3</a>
+				  <a href="#">Format: .gltf</a>
+				</div>
+
+				<div class="dropdown">
+				  <p>Select animation.<span class="arrow">&#8594;</span></p>
+				  <div class="dropdown-content">
+				  <ul class="dropdown-list">
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Malcolm__Bored">Idle</a>
+				  	</li>
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Malcolm__Talking">Talking</a>
+				  	</li>
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Malcolm__Searching">Searching</a>
+				  	</li>
+				  </ul>
+				  </div>
+				</div>
+			</div>	    	
+	    	
+	    	<div class="card">
+	    		<div class="card-image wiz"></div>
+		        <div class="card-header">
+		          <p>Source: Adobe Mixamo</p>
+		          <h2>Abe.</h2>
+		        </div>
+		        
+		        <div class="card-tags">
+		          <a href="#">Animations: 3</a>
+		          <a href="#">Format: .gltf</a>
+		        </div>
+
+		        <div class="dropdown">
+				  <p>Select animation.<span class="arrow">&#8594;</span></p>
+				  <div class="dropdown-content">
+				  <ul class="dropdown-list">
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Wizard__Bored">Idle</a>
+				  	</li>
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Wizard__Taichi">Taichi</a>
+				  	</li>
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Wizard__Twerk">Twerk</a>
+				  	</li>
+				  </ul>
+				  </div>
+				</div>
+	      	</div>
+
+			<div class="card">
+				<div class="card-image michelle"></div>
+				<div class="card-header">
+				  <p>Source: Adobe Mixamo</p>
+				  <h2>Michelle.</h2>
+				</div>
+
+				<div class="card-tags">
+				  <a href="#">Animations: 3</a>
+				  <a href="#">Format: .gltf</a>
+				</div>
+
+				<div class="dropdown">
+				  <p>Select animation.<span class="arrow">&#8594;</span></p>
+				  <div class="dropdown-content">
+				  <ul class="dropdown-list">
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Michelle__Bored">Idle</a>
+				  	</li>
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Michelle__Greeting">Greeting</a>
+				  	</li>
+				  	<li class="dropdown-item">
+				  		<a href="#" name="Michelle__Party">Celebrate</a>
+				  	</li>
+				  </ul>
+				  </div>
+				</div>
+			</div>
+
+	     </div>
+
+	    <div><small>Need to upload your own model?</small></div>
+	    <a href="#" target="_blank" class="pointer">👉 FEATURE RELEASE.
+	   </div>
+	</div>
+	<div id="interactivity-setting" class="modal-window">
+	  <div>
+	    <a href="#" title="Close" class="modal-close">Close</a>
+	    <h1>Add micro interactions.</h1>
+	    <div>Enable joint-mouse movement.</div>
+	    <label class="switch">
+		  <input type="checkbox" name="mi">
+		  <span class="slider round"></span>
+		</label>
+	    <div><small>Looking for more interactive features?</small></div>
+	    <a href="#" target="_blank">👉 FEATURE RELEASE.
+	   </div>
+	</div>
+
+	<!-- Footer -->
+	<div class="footer frame-text">
+		<div>
+		Open-sourced by <a href="https://eleanor-studio/photon.webxr" target="_blank">
+		Eleanor Studio</a>. 2020.
+		</div>
+		<div><img alt="GitHub" src="https://img.shields.io/github/license/eleanor-studio/photon.webxr?style=for-the-badge" /></div>
+	</div>
+
+</div>
+<script type="text/javascript" src="./scripts/main.js"></script>
+ 
+    
+</script>
+</body>
+</html>

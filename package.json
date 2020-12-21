@@ -1,0 +1,16 @@
+{
+  "name": "photon-gui",
+  "version": "1.0.0",
+  "description": "A simple interface for rendering webgl and webxr graphics and creating immersive interactions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pyronlaboratory",
+  "license": "MIT",
+  "dependencies": {
+    "photon-editor": "^1.0.1",
+    "three": "^0.123.0"
+  },
+  "devDependencies": {}
+}
