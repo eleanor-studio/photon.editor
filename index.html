@@ -18,49 +18,8 @@
 	<script type="module">
 		import { PhotonEditor } from './scripts/photon-editor/photon-editor.js';
 
-		// var zip = new JSZip();
-
-		// const genEx = [
-		// 	{"html": "./exports/index.html"},
-		// 	{"css": "./exports/styles/main.css"},
-		// 	{"js": "./exports/scripts/main.js"}
-		// ];
-
 		function generateExport(gen) {
-			// console.log(gen);
-			// fetch(gen.value)
-			// .then(response => response.text())
-			// .then(data => {
-			// 	console.log("now reading..");
-			// 	console.log("call update function");
-			// 	console.log("return now");
-			// 	return "updated file data";
-			// });
-
-
-			// Promise.all([
-			// 	fetch('./exports/index.html'),
-			// 	fetch('./exports/styles/main.css'),
-			// 	fetch('./exports/scripts/main.js')
-			// ]).then(function (responses) {
-			// 	// Get a text object from each of the responses
-			// 	console.log(responses);
-			// 	return Promise.all(responses.map(function (response) {
-			// 		return response.text();
-			// 	}));
-			// }).then(function (data) {
-			// 	// Log the data to the console
-			// 	// You would do something with both sets of data here
-			// 	// console.log(data);
-			// }).then(function () {
-			// 	console.log("now zip..");
-			// 	// Generate the zip file asynchronously
-			// 	// zip.generateAsync({type:"blob"})
-			// 	// .then(function(content) {
-			// 	//     // Force down of the Zip file
-			// 	//     saveAs(content, "source.zip");
-			// 	// });			
-			// }).catch((error) => console.log(error));
+			
 		}
 
 		window.onload = () => {
@@ -70,68 +29,6 @@
 
 			document.getElementById("publish").addEventListener("click", (p) => {
 				p.preventDefault();
-
-				
-
-				// fetch('./exports/index.html')
-				// .then(response => response.text())
-				// .then(data => {
-				// 	console.log("now html..");
-				// 	zip.file("index.html", data);
-				// })
-				// .fetch('./exports/styles/main.css')
-				// .then(response => response.text())
-				// .then(data => {
-				// 	// edit data before saving
-				// 	console.log("now css..");
-				// 	zip.file("styles/main.css", data);
-				// })
-				// .fetch('./exports/scripts/main.js')
-				// .then(response => response.text())
-				// .then(data => {
-				// 	// edit data before saving
-				// 	console.log("now js..");
-				// 	zip.file("styles/main.js", data);
-				// })
-				// .then(function () {
-				// 	console.log("now zip..");
-				// 	// Generate the zip file asynchronously
-				// 	// zip.generateAsync({type:"blob"})
-				// 	// .then(function(content) {
-				// 	//     // Force down of the Zip file
-				// 	//     saveAs(content, "source.zip");
-				// 	// });
-					
-				// }).catch((error) => console.log(error));
-
-
-				// Save Assets
-
-				// let obj = fetch()
-				// 	.then(response => response.text())
-				// 	.then(data => {
-				//   		zip.file("assets/", data);
-				//   	});
-
-				// genEx.forEach( g => {
-				// 	let content = generateExport(g);
-				// 	console.log("received..");
-				// 	console.log(content);
-				// 	// zip.file(content.location, content.data);
-				// });
-
-				// console.log("now zip..");
-				
-				// Generate the zip file asynchronously
-				// zip.generateAsync({type:"blob"})
-				// .then(function(content) {
-				//     // Force down of the Zip file
-				//     saveAs(content, "source.zip");
-				// });
-				
-
-				// console.log("finish now.");
-
 
 			});
 
@@ -188,6 +85,10 @@
 
 </head>
 <body>
+<div class="small-screen-wrapper">
+	<h1>Mobile development under progress 🚀</h1><br />
+	<h2>Please use a higher resolution screen to view the project.</h2>
+</div>
 <div class="wrapper">
 
 	<!-- GitHub Fork -->
@@ -211,7 +112,7 @@
 			<a class="tab" href="#interactivity-setting">INTERACTIVITY.</a>
 		</div>
 		<div class="setting publish" id="publish">
-			<a class="tab" href="#"><div class="txt">PUBLISH.</div> <span>📤</span></a>
+			<a class="tab" href="https://github.com/eleanor-studio/photon.editor.git"><div class="txt">FORK.</div> <span>🍴 </span></a>
 		</div>
 	</div>
 
