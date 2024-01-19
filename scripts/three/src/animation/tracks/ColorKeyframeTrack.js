@@ -26,3 +26,4 @@ ColorKeyframeTrack.prototype = Object.assign( Object.create( KeyframeTrack.proto
 } );
 
 export { ColorKeyframeTrack };
+
