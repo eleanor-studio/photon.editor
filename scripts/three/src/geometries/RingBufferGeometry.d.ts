@@ -34,3 +34,4 @@ export class RingBufferGeometry extends BufferGeometry {
 	};
 
 }
+
