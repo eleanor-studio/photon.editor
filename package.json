@@ -1,7 +1,7 @@
 {
-  "name": "photon-gui",
-  "version": "2.0.0",
-  "description": "Demo app for photon-editor — a WebGL/WebXR scene editor.",
+  "name": "photon-editor-playground-app",
+  "version": "2.0.1",
+  "description": "Playground for photon-editor.",
   "type": "module",
   "scripts": {
     "dev": "vite",

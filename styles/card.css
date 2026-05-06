@@ -4,7 +4,7 @@
 }
 
 .card {
-	height: 400px;
+    height: 400px;
     width: 300px;
     min-width: 250px;
     padding: 1.5rem;
@@ -21,48 +21,46 @@
     justify-content: flex-end;
 }
 
-.card:focus-within~.card, .card:hover~.card {
-    
+.card:focus-within~.card,
+.card:hover~.card {
+
     transform: translateX(130px);
 }
 
 .card:hover {
-    
+
     transform: translateY(-1rem);
 }
 
 .card:not(:first-child) {
-    
+
     margin-left: -130px;
 }
 
 .card-image {
-	
+
     height: 60%;
 }
 
-#model-setting > div > div.card-list > 
-div:nth-child(3) > div.card-image.michelle {
-	background: url(../assets/Michelle.jpg);
+#model-setting>div>div.card-list>div:nth-child(3)>div.card-image.michelle {
+    background: url(../assets/Michelle.jpg);
     background-position: 4% 20%;
 }
 
 
-#model-setting > div > div.card-list > 
-div:nth-child(2) > div.card-image.wiz {
-	background: url(../assets/Wiz.png);
-	background-position: 50% 20%;
+#model-setting>div>div.card-list>div:nth-child(2)>div.card-image.wiz {
+    background: url(../assets/Wiz.png);
+    background-position: 50% 20%;
 }
 
-#model-setting > div > div.card-list > 
-div:nth-child(1) > div.card-image.malcolm {
+#model-setting>div>div.card-list>div:nth-child(1)>div.card-image.malcolm {
     background: url(../assets/Malcolm.png);
     background-position: 75% 0%;
     background-size: cover;
 }
 
 .card-header {
-    
+
     margin-bottom: auto;
 }
 
@@ -83,7 +81,7 @@ div:nth-child(1) > div.card-image.malcolm {
 }
 
 .card-header h2:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
     text-shadow: none;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -107,15 +105,15 @@ div:nth-child(1) > div.card-image.malcolm {
     border: 2px solid #28242f;
     border-radius: 2rem;
     padding: .2rem .85rem .25rem;
+    margin-right: 0.8em;
     position: relative;
 }
 
 .card-tags a:hover {
-    background: linear-gradient(90deg,#ff8a00,#e52e71);
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: slateblue;
     text-shadow: none;
-    -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    -webkit-box-decoration-break: clone;
     background-clip: text;
-    border-color: white;
+    border-color: slateblue;
 }

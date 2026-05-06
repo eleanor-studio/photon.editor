@@ -11,9 +11,6 @@ import { PhotonEditor } from "photon-editor";
 // Asset registry — demo app owns these paths, NOT the library
 // ---------------------------------------------------------------------------
 const MODEL_URLS = {
-  Malcolm__Bored: "./assets/glb/Malcolm__Bored.glb",
-  Malcolm__Talking: "./assets/glb/Malcolm__Talking.glb",
-  Malcolm__Searching: "./assets/glb/Malcolm__Searching.glb",
   Wizard__Bored: "./assets/glb/Wizard__Bored.glb",
   Wizard__Taichi: "./assets/glb/Wizard__Taichi.glb",
   Wizard__Twerk: "./assets/glb/Wizard__Twerk.glb",
