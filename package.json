@@ -1,16 +1,20 @@
 {
   "name": "photon-gui",
-  "version": "1.0.0",
-  "description": "A simple interface for rendering webgl and webxr graphics and creating immersive interactions.",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Demo app for photon-editor — a WebGL/WebXR scene editor.",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "author": "pyronlaboratory",
   "license": "MIT",
   "dependencies": {
-    "photon-editor": "^1.0.1",
-    "three": "^0.123.0"
+    "photon-editor": "^2.0.0",
+    "three": "^0.184.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "vite": "8.0.10"
+  }
 }
