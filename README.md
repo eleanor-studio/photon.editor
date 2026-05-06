@@ -5,6 +5,8 @@
 
 This is the official playground and demonstration repository for [**photon-editor**](https://www.npmjs.com/package/photon-editor). It provides a full-featured graphical user interface to interactively explore the library's capabilities.
 
+![Alt text](public/assets/screenshot.png "Playground")
+
 ## Overview
 
 The Playground serves as a reference implementation for integrating `photon-editor` into a modern web application. It demonstrates:
